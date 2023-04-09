@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista domowych wydatków</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
+    <style>
+        table, th, tr, td {border: 1px solid black;}
+    </style>
+</head>
+
+<h2>Lista wydatków</h2>
+
+<table>
+    <thead>
+    <th>Wydatek na:</th>
+    <th>Opis</th>
+    <th>Czy zrobione?</th>
+    </thead>
+{% for costs in costs %}
+    <tr>
+        <td><a href="/home/{{ loop.index }}">{{ costs.title }}</a></td>
+        <td>{{ costs.description }}</td>
+        <td>{{ costs.done }}</td>
+    </tr>
+{% endfor %}
+</table>
+<div>
+    <h2> Dodaj nowy wydatek: </h2>
+    <form method="POST" action="/home">
+        {{ form.hidden_tag() }}
+        <table>
+            {% for field in form if field.widget.input_type != 'hidden' %}
+                <tr>
+                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Go">
+    </form>
+</div>
+</body>
+</html>

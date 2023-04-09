@@ -1,0 +1,5 @@
+Wymagania:
+Pobierz pliki z github i zapisz w miejscu gdzie posiadasz zainstalowane środowisko wirtualne.
+Jeżlie nie posiadasz środowiska wirtualnego utwórz je w folderze wyznaczonym do przechowywania pliku.
+Dodatkowo potrzebne jest zainstalowanie kilku pakietow poprzez pip (jeżlei nie posiadasz również należy pobrać), potrzebne pakiety:
+Flask, json, Flask-WTF (1.1.1)
